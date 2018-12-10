@@ -21,8 +21,6 @@ from bson.objectid import ObjectId
 import os
 import requests
 import logging
-import aiohttp_jinja2
-import jinja2
 import aiohttp_mako
 routes = web.RouteTableDef()
 logging.basicConfig(level=logging.DEBUG,
@@ -350,9 +348,9 @@ async def KillTask(request):
                                                              })
                                 )
         # update task doc
-        
+
         query_result = await DBoperation.QueryDB({"_id": ObjectId(task_id)})
-        
+
         task_doc = query_result["data"][0]
         task_doc["status"] = "KILLED"
     # check task status
@@ -362,7 +360,7 @@ async def KillTask(request):
             logger.error(
                 "update task doc error, update doc = {}".format(task_doc))
         logger.debug("task doc DB update successfully")
-        return response 
+        return response
     else:
         return web.Response(status=409, body=json.dumps({"error": 409,
                                                          "reason": "status failure, task status: {}"

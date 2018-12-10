@@ -1,5 +1,5 @@
 import logging
-WORKDIR_PREFIX = "/home/mlge1/TASK_WORKDIR"
+WORKDIR_PREFIX = "/home/yuanxiulong/TASK_WORKDIR"
 MAX_SIZE = 50 * 1024 * 1024
 GPU = 1
 Marathon_ADDRESS = "http://mesos-cpu.cluster.peidan.me:8080"
